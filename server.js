@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
+const cors = require("cors");
 
 // Set up for Heroku or Port 5000 cause I'm crazy!
 const PORT = process.env.PORT || 5000;
@@ -21,7 +22,7 @@ app.get("*", (req, res) => {
 });
 
 // Connect to the mongo database!
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-3", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/music", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
